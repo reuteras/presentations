@@ -1,3 +1,5 @@
 # Presentationer
 
-- [Jupyter Notebook (svenska)](./notebook-sv/README.md)
+## Svenska
+
+- [Jupyter Notebooks](./notebook-sv/README.md)
