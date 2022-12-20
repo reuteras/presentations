@@ -2,4 +2,4 @@
 
 ## Svenska
 
-- [Jupyter Notebooks](./notebook-sv/README.md)
+- [Jupyter Notebooks](./notebooks-sv/README.md)
