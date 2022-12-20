@@ -9,6 +9,9 @@ TIProviders:
       AuthKey: <key>
     Primary: True
     Provider: "VirusTotal"
+  TorExitNodes:
+    Primary: True
+    Provider: "Tor"
 OtherProviders:
   GeoIPLite:
     Args:
