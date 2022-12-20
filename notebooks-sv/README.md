@@ -6,7 +6,9 @@ För att förenkla under presentationen så gör vi ett Docker network för att 
 
 	docker network create presentation
 
-Starta en Docker container med Jupyter Notebook och en del verktyg installerade för att kunna se presentationen. På Windows fungerar följande (anpassa sökvägen och det gäller för Linux och Mac också):
+Kopiera sedan filen _home/.msticpy/msticpyconfig.yaml.default_ till _home/.msticpy/msticpyconfig.yaml_ och skriv in dina API-nycklar i filen (eller ta bort de raderna ur filen som hör ihop med den tjänst du inte vill använda).
+
+Starta en Docker container med Jupyter Notebooks för att kunna se presentationen. På Windows fungerar följande (anpassa sökvägen och det gäller för Linux och Mac också):
 
 	docker run --name notebook --network presentation --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v C:\presentations\notebooks-sv\home:/home/jovyan reuteras/container-notebook 
 
