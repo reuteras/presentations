@@ -1,0 +1,27 @@
+TIProviders:
+  OTX:
+    Args:
+      AuthKey: <key>
+    Primary: True
+    Provider: "OTX"
+  VirusTotal:
+    Args:
+      AuthKey: <key>
+    Primary: True
+    Provider: "VirusTotal"
+OtherProviders:
+  GeoIPLite:
+    Args:
+      AuthKey: <key>
+      DBFolder: "~/.msticpy"
+    Provider: "GeoLiteLookup"
+UserDefaults:
+  QueryProviders:
+    Splunk:
+      connect: false
+    LocalData:
+      alias: local
+  LoadComponents:
+    TILookup:
+    GeoIpLookup:
+      provider: GeoLiteLookup
