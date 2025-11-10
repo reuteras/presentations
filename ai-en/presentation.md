@@ -24,12 +24,51 @@ November 2025
 
 **The Result:** We went all the way! 🎉
 
-A fully functional Python TUI client for Miniflux RSS reader
-- Complete feature set
-- Production-ready
-- Secure by design
+---
+
+## Standard Configuration
+
+- Not using MCP for this
+- No skills added
 
 ---
+
+## Agents used
+
+**cli**
+
+- **claude**
+- **codex**
+- **copilot**
+
+**web**
+
+- claude ($250 credit)
+
+---
+
+## Tools
+
+Other tools
+
+- **git**
+- **gh**
+
+---
+
+## Dangers with AI
+
+```bash
+grep -roE "npx [^ ]+" ~/.claude
+```
+
+---
+
+## Lazy AI
+
+```bash
+grep -rE "git commit " ~/.claude | grep "no-verify"
+```
 
 ## What is miniflux-tui-py?
 
@@ -512,7 +551,7 @@ image
 
 **Project Stats:**
 - ~7200 lines of Python code
-- 74%+ test coverage
+- 75%+ test coverage
 - Fully documented
 - Production-ready
 - Multiple verification methods (containers, binaries, PyPI)
