@@ -15,6 +15,13 @@ November 2025
 
 ---
 
+## Disclaimer/warning
+
+- I will call LLMs for AI
+- I will talk about AI as having personalities.
+
+---
+
 ## The Experiment
 
 **Two Ambitious Goals:**
@@ -53,6 +60,64 @@ Other tools
 
 - **git**
 - **gh**
+- **uv**
+
+---
+
+## Lesson #1: Start with Planning
+
+**Before writing ANY code:**
+- Define the architecture
+- Break down features into components
+- Map out the data flow
+- Identify testing strategies
+- Plan security from the start
+
+*The AI is excellent at planning when given clear context*
+
+---
+
+## Lesson #2: Tests for all new code
+
+**Why test-driven development with AI works:**
+```python
+# Ask AI to write tests to catch changes. AI is good at fixing failed tests
+def test_entry_toggle_read():
+        entry = Entry(id=1, status="unread")
+        entry.toggle_read()
+        assert entry.status == "read"
+```
+
+**Result:** Fewer bugs, clearer requirements, faster iteration
+
+---
+
+## Lesson #3: Let the Tools Do the Heavy Lifting
+
+**Automate everything from the start:**
+```bash
+# Linting catches issues immediately
+uv run ruff check .
+
+# Type checking prevents errors
+uv run pyright miniflux_tui tests
+
+# Tests verify behavior
+uv run pytest tests --cov=miniflux_tui
+```
+
+AI sees the errors and fixes them automatically!
+
+---
+
+## Lesson #4: Describe Bugs with Tests
+
+**Traditional approach:**
+"The read/unread toggle isn't working when..."
+
+**Better approach with AI:**
+- Ask AI to write a test that fails.
+- AI sees the test failure output and often fixes the bug immediately!
 
 ---
 
@@ -69,6 +134,8 @@ grep -roE "npx [^ ]+" ~/.claude
 ```bash
 grep -rE "git commit " ~/.claude | grep "no-verify"
 ```
+
+---
 
 ## What is miniflux-tui-py?
 
@@ -126,8 +193,6 @@ Automated security health metrics for open source projects
 ---
 
 ## Perfect 10/10 Scores Achieved
-
-We achieved **perfect scores** in 14 out of 18 checks:
 
 ✅ Dependency-Update-Tool
 ✅ Security-Policy
@@ -368,74 +433,6 @@ grype sbom:sbom.json
 8. Test everything (100% CI coverage)
 
 *AI understood best practices and implemented them!*
-
----
-
-## Lesson #1: Start with Planning
-
-**Before writing ANY code:**
-- Define the architecture
-- Break down features into components
-- Map out the data flow
-- Identify testing strategies
-- Plan security from the start
-
-*The AI is excellent at planning when given clear context*
-
----
-
-## Lesson #2: Tests First, Always
-
-**Why test-driven development with AI works:**
-```python
-# Ask AI to write the test first
-def test_entry_toggle_read():
-        entry = Entry(id=1, status="unread")
-        entry.toggle_read()
-        assert entry.status == "read"
-```
-
-Then let AI implement the functionality to pass the test.
-
-**Result:** Fewer bugs, clearer requirements, faster iteration
-
----
-
-## Lesson #3: Let the Tools Do the Heavy Lifting
-
-**Automate everything from the start:**
-```bash
-# Linting catches issues immediately
-uv run ruff check .
-
-# Type checking prevents errors
-uv run pyright miniflux_tui tests
-
-# Tests verify behavior
-uv run pytest tests --cov=miniflux_tui
-```
-
-AI sees the errors and fixes them automatically!
-
----
-
-## Lesson #4: Describe Bugs with Tests
-
-**Traditional approach:**
-"The read/unread toggle isn't working when..."
-
-**Better approach with AI:**
-Write a failing test that shows the expected behavior:
-```python
-def test_toggle_should_persist_state():
-        entry = Entry(id=1, status="unread")
-        entry.toggle_read()
-        entry.save()
-        reloaded = Entry.load(id=1)
-        assert reloaded.status == "read"  # Fails!
-```
-
-AI sees the test failure output and often fixes the bug immediately!
 
 ---
 
