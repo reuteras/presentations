@@ -8,7 +8,7 @@ paginate: true
 # Building Software with AI
 ## How Far Can We Go When AI Writes All the Code?
 
-**A Journey with miniflux-tui-py**
+**A Journey with [miniflux-tui-py](https://github.com/reuteras/miniflux-tui-py/**
 
 Peter Reuterås
 November 2025
@@ -18,7 +18,8 @@ November 2025
 ## Disclaimer/warning
 
 - I will call LLMs for AI
-- I will talk about AI as having personalities.
+- I will talk about AI as having personalities
+- The basis for this presentation was made by Claude
 
 ---
 
@@ -67,11 +68,9 @@ Other tools
 ## Lesson #1: Start with Planning
 
 **Before writing ANY code:**
-- Define the architecture
-- Break down features into components
-- Map out the data flow
-- Identify testing strategies
-- Plan security from the start
+- Have a plan for what you want
+- Then tell the AI to plan for it and explicitly telling it not to write code
+- Tell the AI that the code should have tests and be secure (Agents.md)
 
 *The AI is excellent at planning when given clear context*
 
@@ -121,44 +120,59 @@ AI sees the errors and fixes them automatically!
 
 ---
 
-## Dangers with AI
+## Lesson #5: Lazy AI
+
+**AI**: My fixes are perfect or I don't want to fix this error
 
 ```bash
-grep -roE "npx [^ ]+" ~/.claude
+git commit --no-verify
 ```
 
 ---
 
-## Lazy AI
+## Lesson #6: Dangers with AI
+
+AI needs to validate configuration and assumes there is an npm package
+available:
 
 ```bash
-grep -rE "git commit " ~/.claude | grep "no-verify"
+npx renovate-config-validator .renovaterc.json 2>&1 | head -50
 ```
+
+This should be a 404, [https://www.npmjs.com/package/renovate-config-validator](https://www.npmjs.com/package/renovate-config-validator)
+
+---
+
+## Why?
+
+- Switched from [Tiny Tiny RSS](https://github.com/tt-rss/tt-rss) to [miniflux.app](https://miniflux.app)
+- Started to extend [cliflux](https://github.com/spencerwi/cliflux) - but I don't know Rust
+- Wanted to know what could be done and tested in CI/CD
 
 ---
 
 ## What is miniflux-tui-py?
 
-A Terminal User Interface (TUI) for Miniflux RSS reader
+[miniflux-tui-py](https://github.com/reuteras/miniflux-tui-py): A Terminal User Interface (TUI) for [Miniflux](https://miniflux.app) RSS reader
 
 **Built with:**
-- Python + Textual framework
-- Modern tooling (uv, ruff, pyright)
+- [Python](https://python.org) + [Textual](https://github.com/textualize/textual/) framework
+- Modern tooling ([uv](https://docs.astral.sh/uv/), [ruff](https://docs.astral.sh/ruff/), [pyright](https://github.com/microsoft/pyright))
 - Comprehensive testing
-- Full documentation
+- [Full documentation](https://reuteras.github.io/miniflux-tui-py/)
 
-**Inspired by:** cliflux (Rust) - but I don't know Rust!
+**Inspired by:** [cliflux](https://github.com/spencerwi/cliflux) ([Rust](https://rust-lang.org)) - but I don't know Rust!
 
 ---
 
 ## Key Features
 
-* **Installation flexibility** - pip, uv, Docker, or standalone binaries
+* **Installation flexibility** - uv, pip, Docker, or standalone binaries (Codespaces)
 * **Secure credential management** - Integrates with password managers
 * **Cross-platform** - Linux, macOS, Windows
 * **Full TUI experience** - Keyboard-driven, vim-style navigation
 * **Docker with Sigstore signing** - Supply chain security
-* **Comprehensive docs** - Built with MkDocs
+* **[Comprehensive docs](https://reuteras.github.io/miniflux-tui-py/)** - Built with MkDocs
 
 ---
 
@@ -186,7 +200,7 @@ Automated security health metrics for open source projects
 **Our Score: 8.9 out of 10**
 - Industry-leading security practices
 - Automated assessment across 18 security checks
-- Publicly verifiable at securityscorecards.dev
+- Publicly verifiable at [securityscorecards.dev](https://securityscorecards.dev/viewer/?uri=github.com/reuteras/miniflux-tui-py)
 
 *This is a strong score for a project of any age!*
 
