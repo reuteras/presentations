@@ -143,6 +143,15 @@ This should be a 404, [https://www.npmjs.com/package/renovate-config-validator](
 
 ---
 
+## Results will differ
+
+Results will differ for the same problem. A security alert for test code can be
+
+- Flagged as a false positive (true)
+- Or solved at the basic level
+
+---
+
 ## Why?
 
 - Switched from [Tiny Tiny RSS](https://github.com/tt-rss/tt-rss) to [miniflux.app](https://miniflux.app)
