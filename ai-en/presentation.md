@@ -625,6 +625,18 @@ cosign verify ghcr.io/reuteras/miniflux-tui:latest \
 
 ---
 
+## Quote
+
+> With AI now, we are able to write new programs that we could never hope to write by hand before. We do it by specifying objectives (e.g. classification accuracy, reward functions), and we search the program space via gradient descent to find neural networks that work well against that objective.
+>
+> ...
+>
+> The environment has to be resettable (you can start a new attempt), efficient (a lot attempts can be made), and rewardable (there is some automated process to reward any specific attempt that was made).
+>
+>— [Andrej Karpathy](https://x.com/karpathy/status/1990116666194456651)
+
+---
+
 ## Questions?
 
 **Thank you!**
