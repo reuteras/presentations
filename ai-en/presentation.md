@@ -637,6 +637,14 @@ cosign verify ghcr.io/reuteras/miniflux-tui:latest \
 
 ---
 
+## Tips
+
+```bash
+echo 'claude -c -p "continue with our analysis and fixes"' | at 16:00
+```
+
+---
+
 ## Questions?
 
 **Thank you!**
