@@ -19,7 +19,7 @@ November 2025
 
 - I will call LLMs for AI
 - I will talk about AI as having personalities
-- The basis for this presentation was made by Claude
+- The base presentation was made by Claude
 
 ---
 
@@ -62,6 +62,8 @@ Other tools
 - **git**
 - **gh**
 - **uv**
+- **pre-commit**
+- (node/npx)
 
 ---
 
@@ -91,7 +93,7 @@ def test_entry_toggle_read():
 
 ---
 
-## Lesson #3: Let the Tools Do the Heavy Lifting
+## Lesson #3: Let Tools Do the Heavy Lifting
 
 **Automate everything from the start:**
 ```bash
@@ -155,8 +157,7 @@ Results will differ for the same problem. A security alert for test code can be
 ## Why?
 
 - Switched from [Tiny Tiny RSS](https://github.com/tt-rss/tt-rss) to [miniflux.app](https://miniflux.app)
-- Started to extend [cliflux](https://github.com/spencerwi/cliflux) - but I don't know Rust
-- Wanted to know what could be done and tested in CI/CD
+- Wanted to know what could be done and tested in CI/CD after npm supply chain problems
 
 ---
 
@@ -174,14 +175,24 @@ Results will differ for the same problem. A security alert for test code can be
 
 ---
 
+## Early version
+
+![height:15cm](first.png "Early version")
+
+```bash
+git checkout 18f85ef1204bfc7c18decf458c40c436480ac2fd
+```
+
+---
+
 ## Key Features
 
-* **Installation flexibility** - uv, pip, Docker, or standalone binaries (Codespaces)
-* **Secure credential management** - Integrates with password managers
-* **Cross-platform** - Linux, macOS, Windows
-* **Full TUI experience** - Keyboard-driven, vim-style navigation
-* **Docker with Sigstore signing** - Supply chain security
-* **[Comprehensive docs](https://reuteras.github.io/miniflux-tui-py/)** - Built with MkDocs
+- **Installation flexibility** - uv, pip, Docker, or standalone binaries (Codespaces)
+- **Secure credential management** - Integrates with password managers
+- **Cross-platform** - Linux, macOS, Windows
+- **Full TUI experience** - Keyboard-driven, vim-style navigation
+- **Docker with Sigstore signing** - Supply chain security
+- **[Comprehensive docs](https://reuteras.github.io/miniflux-tui-py/)** - Built with MkDocs
 
 ---
 
@@ -206,7 +217,7 @@ Results will differ for the same problem. A security alert for test code can be
 **What is OpenSSF Scorecard?**
 Automated security health metrics for open source projects
 
-**Our Score: 8.9 out of 10**
+**Our Score (was): 8.9 out of 10**
 - Industry-leading security practices
 - Automated assessment across 18 security checks
 - Publicly verifiable at [securityscorecards.dev](https://securityscorecards.dev/viewer/?uri=github.com/reuteras/miniflux-tui-py)
@@ -286,7 +297,7 @@ Automated security health metrics for open source projects
 - Force pushes disabled
 - Delete protection enabled
 - Admin enforcement
-- 2 required approving reviews
+- 2 required approving reviews (not any longer)
 - Codeowner review required
 - Last push approval required
 - Up-to-date branches required
@@ -488,11 +499,12 @@ Started with tests → AI proposed secure pattern → Implemented and tested
 
 ## Real Example: Fix highlight position with tests
 
-TODO
 
-<https://claude.ai/code/session_011CUrosCSyAEagCv6XkHoow>
+![](example1.png "Example")
 
-image
+<!--
+Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6XkHoow>
+-->
 
 ---
 
@@ -515,14 +527,14 @@ image
 
 **What we achieved:**
 
-* Reproducible builds with locked dependencies
-* Signed container images (verifiable)
-* Signed release binaries (verifiable)
-* PyPI package attestations (verifiable)
-* SBOM generation (CycloneDX format)
-* Dependency vulnerability scanning
-* Minimal container images
-* Non-root container user
+- Reproducible builds with locked dependencies
+- Signed container images (verifiable)
+- Signed release binaries (verifiable)
+- PyPI package attestations (verifiable)
+- SBOM generation (CycloneDX format)
+- Dependency vulnerability scanning
+- Minimal container images
+- Non-root container user
 
 **All configured by describing requirements to AI!**
 
@@ -570,15 +582,14 @@ image
 ## The Numbers
 
 **Project Stats:**
-- ~7200 lines of Python code
-- 75%+ test coverage
+- ~11400 lines of Python code
+- 77%+ test coverage
 - Fully documented
 - Production-ready
 - Multiple verification methods (containers, binaries, PyPI)
 - **8.9/10 OpenSSF Scorecard**
 - **100% written by AI** (with human guidance)
 
-**Time saved:** Estimated 60-70% compared to manual coding
 **Created**: Would never have existed without AI
 
 ---
@@ -639,16 +650,17 @@ cosign verify ghcr.io/reuteras/miniflux-tui:latest \
 
 ## Tips
 
+When your tokens are gone...
+
 ```bash
-echo 'claude -c -p "continue with our analysis and fixes"' | at 16:00
+sleep 60 && claude -c -p "continue with our analysis and fixes"
 ```
 
 ---
 
 ## Questions?
 
-**Thank you!**
+**Thank you!
 
-*Remember: Start with planning, write tests first, let AI see the errors, and
-verify everything!*
+*Remember: Start with planning, write tests first, let AI see the errors, and verify everything!*
 
