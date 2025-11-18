@@ -8,7 +8,7 @@ paginate: true
 # Building Software with AI
 ## How Far Can We Go When AI Writes All the Code?
 
-**A Journey with [miniflux-tui-py](https://github.com/reuteras/miniflux-tui-py/**
+**A Journey with [miniflux-tui-py](<https://github.com/reuteras/miniflux-tui-py>)**
 
 Peter Reuterås
 November 2025
@@ -321,7 +321,7 @@ cosign verify ghcr.io/reuteras/miniflux-tui:latest \
 ## Understanding Verification Output
 
 **Successful verification shows:**
-```
+```text
 Verification for ghcr.io/reuteras/miniflux-tui:latest --
 The following checks were performed:
   - The cosign claims were validated
@@ -429,12 +429,12 @@ grype sbom:sbom.json
 
 **Public Audit Trail:**
 - Every signature logged in Rekor (public transparency log)
-- Browse at https://search.sigstore.dev/
+- Browse at <https://search.sigstore.dev/>
 - Impossible to backdate or forge signatures
 - Anyone can verify authenticity
 
 **OpenSSF Scorecard:**
-- Public dashboard at https://securityscorecards.dev/
+- Public dashboard at <https://securityscorecards.dev/>
 - Automated weekly scans
 - Historical trend tracking
 
@@ -490,7 +490,7 @@ Started with tests → AI proposed secure pattern → Implemented and tested
 
 TODO
 
-https://claude.ai/code/session_011CUrosCSyAEagCv6XkHoow
+<https://claude.ai/code/session_011CUrosCSyAEagCv6XkHoow>
 
 image
 
@@ -607,7 +607,7 @@ image
 
 ---
 
-## Try it Yourself!
+## Try it Yourself
 ```bash
 # Install with uv
 uv tool install miniflux-tui-py
@@ -620,8 +620,8 @@ cosign verify ghcr.io/reuteras/miniflux-tui:latest \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com
 ```
 
-**GitHub:** https://github.com/reuteras/miniflux-tui-py
-**Docs:** https://reuteras.github.io/miniflux-tui-py
+**GitHub:** <https://github.com/reuteras/miniflux-tui-py>
+**Docs:** <https://reuteras.github.io/miniflux-tui-py>
 
 ---
 
