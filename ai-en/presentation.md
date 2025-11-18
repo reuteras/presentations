@@ -386,6 +386,17 @@ Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6Xk
 
 ---
 
+## Demo
+
+Add an configuration option for starting in grouped mode that collapses feed by default.
+
+Task for AI: User would like an option in the configuration file that controls
+if groups and categories should be expanded or collapsed when starting in
+grouped mode or category mode. Also update example config, documentation and
+tests.
+
+---
+
 ## Tips
 
 When your tokens are gone...
