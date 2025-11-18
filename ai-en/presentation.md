@@ -23,7 +23,14 @@ November 2025
 
 ---
 
-## The Experiment
+## Why?
+
+- Switched from [Tiny Tiny RSS](https://github.com/tt-rss/tt-rss) to [miniflux.app](https://miniflux.app)
+- Wanted to know what could be done and tested in CI/CD after npm supply chain problems
+
+---
+
+## The experiment
 
 **Two Ambitious Goals:**
 
@@ -34,7 +41,9 @@ November 2025
 
 ---
 
-## Standard Configuration
+## Standard configuration
+
+As clean as possible
 
 - Not using MCP for this
 - No skills added
@@ -67,7 +76,39 @@ Other tools
 
 ---
 
-## Lesson #1: Start with Planning
+## Monitor usage web
+
+![height:auto](usage1.png "Usage on web")
+
+---
+
+## Monitor usage claude code (part 1)
+
+![](usage2.png "Usage shown in claude code")
+
+---
+
+## Monitor usage claude code (part 2)
+
+![](usage3.png "Usage config for claude code")
+
+---
+
+## What is miniflux-tui-py?
+
+[miniflux-tui-py](https://github.com/reuteras/miniflux-tui-py): A Terminal User Interface (TUI) for [Miniflux](https://miniflux.app) RSS reader
+
+**Built with:**
+- [Python](https://python.org) + [Textual](https://github.com/textualize/textual/) framework
+- Modern tooling ([uv](https://docs.astral.sh/uv/), [ruff](https://docs.astral.sh/ruff/), [pyright](https://github.com/microsoft/pyright))
+- Comprehensive testing
+- [Full documentation](https://reuteras.github.io/miniflux-tui-py/)
+
+**Inspired by:** [cliflux](https://github.com/spencerwi/cliflux) ([Rust](https://rust-lang.org)) - but I don't know Rust!
+
+---
+
+## Lesson #1: Start with planning
 
 **Before writing ANY code:**
 - Have a plan for what you want
@@ -78,22 +119,7 @@ Other tools
 
 ---
 
-## Lesson #2: Tests for all new code
-
-**Why test-driven development with AI works:**
-```python
-# Ask AI to write tests to catch changes. AI is good at fixing failed tests
-def test_entry_toggle_read():
-        entry = Entry(id=1, status="unread")
-        entry.toggle_read()
-        assert entry.status == "read"
-```
-
-**Result:** Fewer bugs, clearer requirements, faster iteration
-
----
-
-## Lesson #3: Let Tools Do the Heavy Lifting
+## Lesson #2: Let tools do the heavy lifting
 
 **Automate everything from the start:**
 ```bash
@@ -107,11 +133,11 @@ uv run pyright miniflux_tui tests
 uv run pytest tests --cov=miniflux_tui
 ```
 
-AI sees the errors and fixes them automatically!
+AI sees the errors and fixes them automatically! Also check complexity, security, GitHub actions
 
 ---
 
-## Lesson #4: Describe Bugs with Tests
+## Lesson #3: Describe bugs with tests
 
 **Traditional approach:**
 "The read/unread toggle isn't working when..."
@@ -122,7 +148,7 @@ AI sees the errors and fixes them automatically!
 
 ---
 
-## Lesson #5: Lazy AI
+## Lesson #4: Lazy AI
 
 **AI**: My fixes are perfect or I don't want to fix this error
 
@@ -132,7 +158,7 @@ git commit --no-verify
 
 ---
 
-## Lesson #6: Dangers with AI
+## Lesson #5: Dangers with AI
 
 AI needs to validate configuration and assumes there is an npm package
 available:
@@ -154,27 +180,6 @@ Results will differ for the same problem. A security alert for test code can be
 
 ---
 
-## Why?
-
-- Switched from [Tiny Tiny RSS](https://github.com/tt-rss/tt-rss) to [miniflux.app](https://miniflux.app)
-- Wanted to know what could be done and tested in CI/CD after npm supply chain problems
-
----
-
-## What is miniflux-tui-py?
-
-[miniflux-tui-py](https://github.com/reuteras/miniflux-tui-py): A Terminal User Interface (TUI) for [Miniflux](https://miniflux.app) RSS reader
-
-**Built with:**
-- [Python](https://python.org) + [Textual](https://github.com/textualize/textual/) framework
-- Modern tooling ([uv](https://docs.astral.sh/uv/), [ruff](https://docs.astral.sh/ruff/), [pyright](https://github.com/microsoft/pyright))
-- Comprehensive testing
-- [Full documentation](https://reuteras.github.io/miniflux-tui-py/)
-
-**Inspired by:** [cliflux](https://github.com/spencerwi/cliflux) ([Rust](https://rust-lang.org)) - but I don't know Rust!
-
----
-
 ## Early version
 
 ![height:15cm](first.png "Early version")
@@ -185,7 +190,7 @@ git checkout 18f85ef1204bfc7c18decf458c40c436480ac2fd
 
 ---
 
-## Key Features
+## Key features
 
 - **Installation flexibility** - uv, pip, Docker, or standalone binaries (Codespaces)
 - **Secure credential management** - Integrates with password managers
@@ -196,7 +201,7 @@ git checkout 18f85ef1204bfc7c18decf458c40c436480ac2fd
 
 ---
 
-## Security: Going the Distance
+## Security: Going the distance
 
 **Container Security:**
 - Signed container images with Sigstore Cosign
@@ -226,56 +231,9 @@ Automated security health metrics for open source projects
 
 ---
 
-## Perfect 10/10 Scores Achieved
-
-✅ Dependency-Update-Tool
-✅ Security-Policy
-✅ Code-Review
-✅ Binary-Artifacts
-✅ Dangerous-Workflow
-✅ Token-Permissions
-✅ Pinned-Dependencies
-
----
-
-## Perfect 10/10 Scores (continued)
-
-✅ Vulnerabilities
-✅ Packaging
-✅ Fuzzing
-✅ License
-✅ Signed-Releases
-✅ Branch-Protection
-✅ CI-Tests
-
-*14 perfect scores demonstrates exceptional security practices!*
-
----
-
-## Areas for Growth
-
-**SAST: 9/10** - Static analysis on 25/30 commits
-- CodeQL configured and running
-- Room for improvement: Run on every commit
-
-**CII Best Practices: 5/10** - Passing badge achieved
-- Could pursue Silver or Gold tiers
-- Requires more contributors and documentation
-
----
-
-## Areas for Growth (continued)
-
-**Maintained: 0/10** - Project created within last 90 days
-- Will improve automatically with age
-- Shows active development
-
-**Contributors: 0/10** - Single organization
-- Would improve with external contributors
-
----
-
 ## Dependency Security in Detail
+
+(numbers counted by AI)
 
 **All 136 dependencies pinned by hash:**
 - 59 GitHub-owned Actions
@@ -308,92 +266,6 @@ Automated security health metrics for open source projects
 
 ---
 
-## Verifying Container Images
-
-**Offline verification** (uses embedded signature bundle):
-```bash
-cosign verify ghcr.io/reuteras/miniflux-tui:latest \
-  --certificate-identity=https://github.com/reuteras/miniflux-tui-py/.github/workflows/container-image.yml@refs/heads/main
-\
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com
-```
-
-**Online verification** (checks transparency log):
-```bash
-cosign verify ghcr.io/reuteras/miniflux-tui:latest \
-  --certificate-identity=https://github.com/reuteras/miniflux-tui-py/.github/workflows/container-image.yml@refs/heads/main
-\
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-  --rekor-url=https://rekor.sigstore.dev
-```
-
----
-
-## Understanding Verification Output
-
-**Successful verification shows:**
-```text
-Verification for ghcr.io/reuteras/miniflux-tui:latest --
-The following checks were performed:
-  - The cosign claims were validated
-  - Existence of claims in transparency log verified
-  - Code-signing certificate verified
-```
-
-**What this proves:**
-- Signature is cryptographically valid
-- Signed by the specified GitHub workflow
-- Recorded in immutable public transparency log
-- Image hasn't been tampered with since signing
-
----
-
-## Verifying Release Binaries
-
-**Standalone binaries are also signed!**
-```bash
-# Download binary, signature, and certificate
-wget
-https://github.com/reuteras/miniflux-tui-py/releases/download/v0.5.8/miniflux-tui-linux-x86_64.tar.gz
-wget
-https://github.com/reuteras/miniflux-tui-py/releases/download/v0.5.8/miniflux-tui-linux-x86_64.tar.gz.sig
-wget
-https://github.com/reuteras/miniflux-tui-py/releases/download/v0.5.8/miniflux-tui-linux-x86_64.tar.gz.pem
-
-# Verify the binary
-cosign verify-blob miniflux-tui-linux-x86_64.tar.gz \
-  --certificate miniflux-tui-linux-x86_64.tar.gz.pem \
-  --signature miniflux-tui-linux-x86_64.tar.gz.sig \
-  --certificate-identity=https://github.com/reuteras/miniflux-tui-py/.github/workflows/release.yml@refs/tags/v0.5.8
-\
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com
-```
-
----
-
-## Verifying PyPI Packages
-
-**PyPI packages include attestations:**
-```bash
-# Install the package
-pip install miniflux-tui-py
-
-# Verify attestations (requires pip 24.2+)
-pip install --verify miniflux-tui-py
-
-# Or use sigstore-python for detailed verification
-pipx install sigstore
-python -m sigstore verify identity miniflux_tui_py-0.5.8-py3-none-any.whl \
-  --cert-identity
-https://github.com/reuteras/miniflux-tui-py/.github/workflows/release.yml@refs/tags/v0.5.8
-\
-  --cert-oidc-issuer https://token.actions.githubusercontent.com
-```
-
-**Multiple verification points = Stronger security**
-
----
-
 ## SBOMs: Software Bill of Materials
 
 **What are SBOMs?**
@@ -406,29 +278,6 @@ Software Bill of Materials - a complete inventory of all components
 - Enable automated vulnerability scanning
 - Build trust with users
 
----
-
-## SBOM Use Cases in Practice
-
-**Security scanning:**
-```bash
-# Generate SBOM during build
-syft packages . -o cyclonedx-json > sbom.json
-
-# Scan for vulnerabilities
-grype sbom:sbom.json
-```
-
----
-
-## SBOM Use Cases in Practice (continued)
-
-**Security scanning:**
-**Compliance and Auditing:**
-- Prove you know what's in your software
-- Track license compliance
-- Meet regulatory requirements
-
 **Incident Response:**
 - "Is my software affected by CVE-2025-XXXX?"
 - Check SBOM instead of analyzing entire codebase
@@ -436,64 +285,16 @@ grype sbom:sbom.json
 
 ---
 
-## The Transparency Advantage
-
-**Public Audit Trail:**
-- Every signature logged in Rekor (public transparency log)
-- Browse at <https://search.sigstore.dev/>
-- Impossible to backdate or forge signatures
-- Anyone can verify authenticity
-
-**OpenSSF Scorecard:**
-- Public dashboard at <https://securityscorecards.dev/>
-- Automated weekly scans
-- Historical trend tracking
-
-**This level of transparency was unthinkable a few years ago!**
-
----
-
-## How We Achieved 8.9/10
-
-**The secret? Let AI configure security from day one:**
-
-1. Plan security requirements with AI
-2. Generate security policies (SECURITY.md)
-3. Configure branch protection rules
-4. Set up automated scanning (CodeQL, OSV-Scanner, Semgrep)
-5. Implement signing (Sigstore with OIDC)
-6. Pin all dependencies by hash
-7. Add fuzzing (Atheris)
-8. Test everything (100% CI coverage)
-
-*AI understood best practices and implemented them!*
-
----
-
 ## The AI Development Loop
 
 1. **Plan** - Describe what you want to build
-2. **Generate tests** - AI writes tests from requirements
-3. **Implement** - AI writes code to pass tests
+2. **Implement** - AI writes code to pass tests
+3. **Generate tests** - AI writes tests from requirements
 4. **Run linters** - Automated tools catch issues
 5. **AI auto-fixes** - AI sees linter output and corrects
 6. **Iterate** - Repeat until feature is complete
 
 **Much faster than explaining bugs in prose!**
-
----
-
-## Real Example: Config Management
-
-**Challenge:** Store API tokens securely
-
-**AI-Generated Solution:**
-```toml
-# Don't store tokens in plaintext
-password = ["op", "read", "op://Personal/Miniflux/API Token"]
-```
-
-Started with tests → AI proposed secure pattern → Implemented and tested
 
 ---
 
@@ -505,38 +306,6 @@ Started with tests → AI proposed secure pattern → Implemented and tested
 <!--
 Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6XkHoow>
 -->
-
----
-
-## CI/CD: Maximum Security
-
-**GitHub Actions Pipeline:**
-- Automated testing on every commit
-- Type checking and linting
-- Security scanning with SBOM generation
-- Container image building
-- Sigstore signing with OIDC (keyless!)
-- Multi-platform binary builds
-- Automated releases with attestations
-
-**Zero manual deployment steps, maximum verification!**
-
----
-
-## Supply Chain Security Wins
-
-**What we achieved:**
-
-- Reproducible builds with locked dependencies
-- Signed container images (verifiable)
-- Signed release binaries (verifiable)
-- PyPI package attestations (verifiable)
-- SBOM generation (CycloneDX format)
-- Dependency vulnerability scanning
-- Minimal container images
-- Non-root container user
-
-**All configured by describing requirements to AI!**
 
 ---
 
@@ -571,7 +340,6 @@ Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6Xk
 ⚠ **Context window limits** - Large files need chunking
 ⚠ **Occasional hallucinations** - Always verify critical security code
 ⚠ **Over-engineering** - AI sometimes suggests overly complex solutions
-⚠ **Dependency conflicts** - Sometimes suggests incompatible versions
 ⚠ **Lazy** - Sometimes disables test instead of solving problem
 ⚠ **Forgets** - Often tried to change signing config if I was away
 
@@ -587,8 +355,8 @@ Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6Xk
 - Fully documented
 - Production-ready
 - Multiple verification methods (containers, binaries, PyPI)
-- **8.9/10 OpenSSF Scorecard**
-- **100% written by AI** (with human guidance)
+- **8.0/10 OpenSSF Scorecard**
+- **99,9% written by AI** (with human guidance)
 
 **Created**: Would never have existed without AI
 
@@ -615,36 +383,6 @@ Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6Xk
 - Together: Build faster, more secure software
 
 **We didn't just "go far" - we went all the way!**
-
----
-
-## Try it Yourself
-```bash
-# Install with uv
-uv tool install miniflux-tui-py
-
-# Or with Docker (signed image - verify it!)
-docker pull ghcr.io/reuteras/miniflux-tui:latest
-cosign verify ghcr.io/reuteras/miniflux-tui:latest \
-  --certificate-identity=https://github.com/reuteras/miniflux-tui-py/.github/workflows/container-image.yml@refs/heads/main
-\
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com
-```
-
-**GitHub:** <https://github.com/reuteras/miniflux-tui-py>
-**Docs:** <https://reuteras.github.io/miniflux-tui-py>
-
----
-
-## Quote
-
-> With AI now, we are able to write new programs that we could never hope to write by hand before. We do it by specifying objectives (e.g. classification accuracy, reward functions), and we search the program space via gradient descent to find neural networks that work well against that objective.
->
-> ...
->
-> The environment has to be resettable (you can start a new attempt), efficient (a lot attempts can be made), and rewardable (there is some automated process to reward any specific attempt that was made).
->
->— [Andrej Karpathy](https://x.com/karpathy/status/1990116666194456651)
 
 ---
 
