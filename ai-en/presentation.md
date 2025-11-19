@@ -41,7 +41,7 @@ November 2025
 
 ---
 
-## Standard configuration
+## Standard configuration of AI
 
 As clean as possible
 
@@ -62,13 +62,15 @@ As clean as possible
 
 - claude ($250 credit)
 
+Will test Google Gemini later.
+
 ---
 
 ## Tools
 
 Other tools
 
-- **git**
+- **git** and GitHub
 - **gh**
 - **uv**
 - **pre-commit**
@@ -78,19 +80,21 @@ Other tools
 
 ## Monitor usage web
 
-![height:auto](usage1.png "Usage on web")
+Remember to monitor your usage...
+
+!["Usage on web" height:450px](images/usage1.png "Usage on web")
 
 ---
 
 ## Monitor usage claude code (part 1)
 
-![](usage2.png "Usage shown in claude code")
+!["Usage shown in Claude code"](images/usage2.png "Usage shown in claude code")
 
 ---
 
 ## Monitor usage claude code (part 2)
 
-![](usage3.png "Usage config for claude code")
+!["Usage config for Claude code config"](images/usage3.png "Usage config for claude code")
 
 ---
 
@@ -108,20 +112,97 @@ Other tools
 
 ---
 
-## Lesson #1: Start with planning
+## Early version
 
-**Before writing ANY code:**
-- Have a plan for what you want
-- Then tell the AI to plan for it and explicitly telling it not to write code
-- Tell the AI that the code should have tests and be secure (Agents.md)
+![height:15cm](images/first.png "Early version")
 
-*The AI is excellent at planning when given clear context*
+```bash
+git checkout 18f85ef1204bfc7c18decf458c40c436480ac2fd
+```
 
 ---
 
-## Lesson #2: Let tools do the heavy lifting
+## The Numbers
 
-**Automate everything from the start:**
+**Project Stats:**
+- ~11400 lines of Python code for the app and ~19500 lines test code
+- 76%+ test coverage
+- Fully documented
+- **99,9% written by AI** (with human guidance)
+
+**Created**: Would never have existed without AI
+
+---
+
+## OpenSSF Scorecard: 8.9/10 🏆
+
+**What is OpenSSF Scorecard?**
+Automated security health metrics for open source projects
+
+**Our Score (was): 8.9 out of 10**
+- Industry-leading security practices
+- Automated assessment across 18 security checks
+- Publicly verifiable at [securityscorecards.dev](https://securityscorecards.dev/viewer/?uri=github.com/reuteras/miniflux-tui-py)
+
+Today the score is 8.0.
+
+---
+
+<!-- GitHub page for miniflux-tui-py, <https://github.com/reuteras/miniflux-tui-py> -->
+
+![bg](images/github.png)
+
+---
+
+## Key features
+
+- **Installation flexibility** - uv/pip, Docker or standalone binaries (Codespaces)
+- **Secure credential management** - Integrates with password managers
+- **Cross-platform** - Linux, macOS, Windows (has iOS branch)
+- **Full TUI experience** - Keyboard-driven, vim-style navigation
+- **Docker with Sigstore signing** - Supply chain security
+- **[Comprehensive docs](https://reuteras.github.io/miniflux-tui-py/)** - Built with MkDocs
+
+---
+
+## Claude code web (part 1)
+
+![bg right contain](images/ccw1.png "Claude code web example 1")
+
+---
+
+## Claude code web (part 2)
+
+![bg right contain](images/ccw2.png "Claude code web example 2")
+
+---
+
+## Claude code web (part 3)
+
+![bg right contain](images/ccw3.png "Claude code web example 3")
+
+---
+
+## Claude code web live
+
+[https://claude.ai/code](https://claude.ai/code)
+
+---
+
+## Lessons: Start with planning
+
+**Before writing ANY code:**
+- Have a plan for what you want
+- Tell the AI to generate a roadmap for the app and explicitly tell it not to write code
+- Create AGENT.md with instructions about tests, secure coding, issues/branch/PR and more
+
+*The AI is excellent at planning and implementing when given clear context*
+
+---
+
+## Let tools do the heavy lifting
+
+**Automate everything from the start in pre-commit and CI:**
 ```bash
 # Linting catches issues immediately
 uv run ruff check .
@@ -137,7 +218,7 @@ AI sees the errors and fixes them automatically! Also check complexity, security
 
 ---
 
-## Lesson #3: Describe bugs with tests
+## Describe bugs with tests
 
 **Traditional approach:**
 "The read/unread toggle isn't working when..."
@@ -148,7 +229,17 @@ AI sees the errors and fixes them automatically! Also check complexity, security
 
 ---
 
-## Lesson #4: Lazy AI
+## Real Example: Fix highlight position with tests
+
+!["Example of test to get AI to do the right thing"](images/example1.png "Example")
+
+<!--
+Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6XkHoow>
+-->
+
+---
+
+## Lazy AI
 
 **AI**: My fixes are perfect or I don't want to fix this error
 
@@ -158,10 +249,9 @@ git commit --no-verify
 
 ---
 
-## Lesson #5: Dangers with AI
+## Dangers with AI
 
-AI needs to validate configuration and assumes there is an npm package
-available:
+AI needs to validate configuration and assumes there is an npm package available:
 
 ```bash
 npx renovate-config-validator .renovaterc.json 2>&1 | head -50
@@ -180,111 +270,6 @@ Results will differ for the same problem. A security alert for test code can be
 
 ---
 
-## Early version
-
-![height:15cm](first.png "Early version")
-
-```bash
-git checkout 18f85ef1204bfc7c18decf458c40c436480ac2fd
-```
-
----
-
-## Key features
-
-- **Installation flexibility** - uv, pip, Docker, or standalone binaries (Codespaces)
-- **Secure credential management** - Integrates with password managers
-- **Cross-platform** - Linux, macOS, Windows
-- **Full TUI experience** - Keyboard-driven, vim-style navigation
-- **Docker with Sigstore signing** - Supply chain security
-- **[Comprehensive docs](https://reuteras.github.io/miniflux-tui-py/)** - Built with MkDocs
-
----
-
-## Security: Going the distance
-
-**Container Security:**
-- Signed container images with Sigstore Cosign
-- GitHub OIDC for keyless signing
-- Published to GitHub Container Registry
-- Verifiable supply chain
-
-**Dependency Management:**
-- Locked dependencies with uv
-- Automated security scanning
-- Regular dependency updates
-- SBOM generation for transparency
-
----
-
-## OpenSSF Scorecard: 8.9/10 🏆
-
-**What is OpenSSF Scorecard?**
-Automated security health metrics for open source projects
-
-**Our Score (was): 8.9 out of 10**
-- Industry-leading security practices
-- Automated assessment across 18 security checks
-- Publicly verifiable at [securityscorecards.dev](https://securityscorecards.dev/viewer/?uri=github.com/reuteras/miniflux-tui-py)
-
-*This is a strong score for a project of any age!*
-
----
-
-## Dependency Security in Detail
-
-(numbers counted by AI)
-
-**All 136 dependencies pinned by hash:**
-- 59 GitHub-owned Actions
-- 73 third-party Actions
-- 2 container images
-- 2 pip commands
-
-**Automated updates:**
-- Dependabot for GitHub Actions
-- RenovateBot for Python packages
-
-**Why this matters:** Prevents supply chain attacks through dependency confusion
-
----
-
-## Branch Protection Excellence
-
-**Main branch protection includes:**
-- Force pushes disabled
-- Delete protection enabled
-- Admin enforcement
-- 2 required approving reviews (not any longer)
-- Codeowner review required
-- Last push approval required
-- Up-to-date branches required
-- Status checks required
-- Stale review dismissal
-
-*One of the most comprehensive branch protections possible!*
-
----
-
-## SBOMs: Software Bill of Materials
-
-**What are SBOMs?**
-Software Bill of Materials - a complete inventory of all components
-
-**Why generate them?**
-- Know exactly what's in your software
-- Quickly identify vulnerable dependencies
-- Comply with security requirements (NTIA, EU Cyber Resilience Act)
-- Enable automated vulnerability scanning
-- Build trust with users
-
-**Incident Response:**
-- "Is my software affected by CVE-2025-XXXX?"
-- Check SBOM instead of analyzing entire codebase
-- Respond to security issues in minutes, not hours
-
----
-
 ## The AI Development Loop
 
 1. **Plan** - Describe what you want to build
@@ -295,32 +280,6 @@ Software Bill of Materials - a complete inventory of all components
 6. **Iterate** - Repeat until feature is complete
 
 **Much faster than explaining bugs in prose!**
-
----
-
-## Real Example: Fix highlight position with tests
-
-
-![](example1.png "Example")
-
-<!--
-Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6XkHoow>
--->
-
----
-
-## Documentation: AI's Hidden Strength
-
-**AI excels at documentation when you have:**
-- Well-structured code
-- Clear docstrings
-- Good test coverage
-
-**Result:** Comprehensive docs at [docs site](https://reuteras.github.io/miniflux-tui-py/)
-- Installation guides
-- Configuration examples
-- API reference
-- Troubleshooting
 
 ---
 
@@ -347,21 +306,6 @@ Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6Xk
 
 ---
 
-## The Numbers
-
-**Project Stats:**
-- ~11400 lines of Python code
-- 77%+ test coverage
-- Fully documented
-- Production-ready
-- Multiple verification methods (containers, binaries, PyPI)
-- **8.0/10 OpenSSF Scorecard**
-- **99,9% written by AI** (with human guidance)
-
-**Created**: Would never have existed without AI
-
----
-
 ## Key Takeaways
 
 1. **Planning is crucial** - More planning → Better code
@@ -370,7 +314,6 @@ Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6Xk
 4. **Bugs → Tests → Fixes** - Faster than explaining in words
 5. **Security can be automated** - Supply chain security is achievable
 6. **Verify, don't trust** - Multiple verification methods for confidence
-7. **SBOMs are essential** - Know what's in your software
 
 ---
 
@@ -397,6 +340,12 @@ tests.
 
 ---
 
+## Demo 2
+
+Any app suggestions or other additions?
+
+---
+
 ## Tips
 
 When your tokens are gone...
@@ -409,7 +358,7 @@ sleep 60 && claude -c -p "continue with our analysis and fixes"
 
 ## Questions?
 
-**Thank you!
+**Thank you!**
 
 *Remember: Start with planning, write tests first, let AI see the errors, and verify everything!*
 
