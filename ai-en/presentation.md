@@ -41,7 +41,7 @@ November 2025
 
 ---
 
-## Standard configuration of AI
+## Standard configuration
 
 As clean as possible
 
@@ -61,6 +61,7 @@ As clean as possible
 **web**
 
 - claude ($250 credit)
+- copilot  (GitHub Copilot)
 
 Will test Google Gemini later.
 
@@ -154,6 +155,14 @@ Today the score is 8.0.
 
 ---
 
+## Demo: miniflux-tui-py
+
+Demo of miniflux-tui-py in action in terminal or Codespaces.
+
+<!-- Demo startup and reading feeds and entries-->
+
+---
+
 ## Key features
 
 - **Installation flexibility** - uv/pip, Docker or standalone binaries (Codespaces)
@@ -163,23 +172,7 @@ Today the score is 8.0.
 - **Docker with Sigstore signing** - Supply chain security
 - **[Comprehensive docs](https://reuteras.github.io/miniflux-tui-py/)** - Built with MkDocs
 
----
-
-## Claude code web (part 1)
-
-![bg right contain](images/ccw1.png "Claude code web example 1")
-
----
-
-## Claude code web (part 2)
-
-![bg right contain](images/ccw2.png "Claude code web example 2")
-
----
-
-## Claude code web (part 3)
-
-![bg right contain](images/ccw3.png "Claude code web example 3")
+<!-- Everything made by AI agents. -->
 
 ---
 
@@ -188,6 +181,19 @@ Today the score is 8.0.
 [https://claude.ai/code](https://claude.ai/code)
 
 ---
+
+## cli agents demo
+
+What the different agents look like in the terminal:
+
+- claude
+- codex
+- copilot
+
+Example of asking for a new feature later.
+
+---
+
 
 ## Lessons: Start with planning
 
@@ -215,6 +221,8 @@ uv run pytest tests --cov=miniflux_tui
 ```
 
 AI sees the errors and fixes them automatically! Also check complexity, security, GitHub actions
+
+<!-- Use pre-commit and actions/workflow in CI -->
 
 ---
 
@@ -245,6 +253,7 @@ Url for the example session <https://claude.ai/code/session_011CUrosCSyAEagCv6Xk
 
 ```bash
 git commit --no-verify
+SKIP=pytest uv pre-commit run --all-files
 ```
 
 ---
@@ -267,6 +276,7 @@ Results will differ for the same problem. A security alert for test code can be
 
 - Flagged as a false positive (true)
 - Or solved at the basic level
+- It's late, lets continue tomorrow
 
 ---
 
@@ -291,16 +301,17 @@ Results will differ for the same problem. A security alert for test code can be
 ✓ **Security automation** - Sigstore, SBOM, scanning
 ✓ **Documentation** - Consistent and comprehensive (automatic search!)
 ✓ **Bug fixing via test descriptions** - Game changer!
+- Provide url to source code to help AI
 
 ---
 
 ## Unexpected Challenges
 
-⚠ **Context window limits** - Large files need chunking
 ⚠ **Occasional hallucinations** - Always verify critical security code
 ⚠ **Over-engineering** - AI sometimes suggests overly complex solutions
 ⚠ **Lazy** - Sometimes disables test instead of solving problem
 ⚠ **Forgets** - Often tried to change signing config if I was away
+- Overconfident in its own fixes
 
 **Solution:** Clear guidance, iterative refinement, and always test!
 
